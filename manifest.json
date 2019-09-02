@@ -1,0 +1,138 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "camLog.ZMM_CAM_LOG",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZMM_CAM_PERSO_LOG_SRV": {
+				"uri": "/sap/opu/odata/sap/ZMM_CAM_PERSO_LOG_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZMM_CAM_PERSO_LOG_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "camLog.ZMM_CAM_LOG.view.Main",
+			"type": "XML",
+			"async": true,
+			"id": "Main"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "camLog.ZMM_CAM_LOG.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZMM_CAM_PERSO_LOG_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "camLog.ZMM_CAM_LOG.view",
+				"controlAggregation": "pages",
+				"controlId": "MainApp"
+			},
+			"routes": [
+				{
+					"name": "RouteWorklist",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetWorklist"
+					]
+				},
+				{
+					"name": "RouteDetalhe",
+					"pattern": "RouteDetalhe/{NPerson}",
+					"greedy": false,
+					"target": [
+						"TargetDetalhe"
+					]
+				}
+			],
+			"targets": {
+				"TargetWorklist": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "WorkList",
+					"viewId": "TargetWorklist",
+					"viewLevel": 1
+				},
+				"TargetDetalhe": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Detalhe",
+					"viewId": "TargetDetalhe",
+					"viewLevel": 2
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zmm_cam_log/webapp",
+		"_version": "1.1.0"
+	}
+}

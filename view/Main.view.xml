@@ -1,0 +1,6 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="camLog.ZMM_CAM_LOG.controller.Main"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--View apenas utilizada para carregar outras views e não gerar probelma de navegação no Router-->
+	<App id='MainApp'>
+	</App>
+</mvc:View>

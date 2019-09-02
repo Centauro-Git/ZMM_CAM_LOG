@@ -1,0 +1,222 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="camLog.ZMM_CAM_LOG.controller.Detalhe" displayBlock="true">
+	<sap.m.semantic:FullscreenPage xmlns:sap.m.semantic="sap.m.semantic" id="idDetalhePage" enableScrolling="false" showNavButton="false">
+		<ScrollContainer id="idScrollContainer" height="100%" vertical="true">
+			<Panel id="idInInfo" backgroundDesign="Solid">
+				<f:Form id="idPedido" editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblColab}">
+									<f:fields>
+										<Input id="colab" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>lblProduto}">
+									<f:fields>
+										<Input id="produto" required="true" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblNome}">
+									<f:fields>
+										<Input id="nome" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>lblCpf}">
+									<f:fields>
+										<Input id="cpf" maxLength="18" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="{i18n>lblEmail}">
+									<f:fields>
+										<Input id="email" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<CheckBox xmlns="sap.m" text="{i18n>lblCbPerso}" selected="false" id="cbPerso" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+				<f:Form id="idCamNome" editable="true">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<VBox>
+											<Label text="{i18n>lblNmPerso}" labelFor="nmPerso"/>
+											<Input id="nmPerso" maxLength="16" editable="false"/>
+										</VBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement>
+									<f:fields>
+										<VBox>
+											<Label text="{i18n>lblRbNmPos}" labelFor="rbNmPos"/>
+											<RadioButtonGroup id="rbNmPos" editable="false" columns="2">
+												<buttons>
+													<RadioButton id="NmPos1" text="{i18n>lblNmPos01}"/>
+													<RadioButton id="NmPos2" text="{i18n>lblNmPos02}"/>
+												</buttons>
+											</RadioButtonGroup>
+										</VBox>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement>
+									<f:fields>
+										<VBox>
+											<Label text="{i18n>lblRbNmAli}" labelFor="rbNmAli"/>
+											<RadioButtonGroup id="rbNmAli" editable="false" columns="2">
+												<buttons>
+													<RadioButton id="NmAli1" text="{i18n>lblNmAli01}"/>
+													<RadioButton id="Nmali2" text="{i18n>lblNmAli02}"/>
+												</buttons>
+											</RadioButtonGroup>
+										</VBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblRbNmFt}">
+									<f:fields>
+										<RadioButtonGroup id="rbNmFt" editable="false">
+											<buttons>
+												<RadioButton id="NM_FT_01" text="{i18n>lblNmFt01}"/>
+												<RadioButton id="NM_FT_02" text="{i18n>lblNmFt02}"/>
+												<RadioButton id="NM_FT_03" text="{i18n>lblNmFt03}"/>
+												<RadioButton id="NM_FT_04" text="{i18n>lblNmFt04}" select="onGenSelected"/>
+											</buttons>
+										</RadioButtonGroup>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer id="NM_OPT" visible="false">
+							<f:formElements>
+								<f:FormElement id="NM_COR" label="{i18n>lblCor}">
+									<f:fields>
+										<Input id="nmCorText" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement id="NM_ANO" label="{i18n>lblNmAno}" visible="false">
+									<f:fields>
+										<Input id="nmAnoText" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblRbNmMat}">
+									<f:fields>
+										<RadioButtonGroup id="rbNmMat" editable="false">
+											<buttons>
+												<RadioButton id="NM_MT_01" text="{i18n>lblNmMt01}"/>
+												<RadioButton id="NM_MT_02" text="{i18n>lblNmMt02}"/>
+												<RadioButton id="NM_MT_03" text="{i18n>lblNmMt03}" editable="false"/>
+											</buttons>
+										</RadioButtonGroup>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+				<f:Form id="idCamNumero" editable="false">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="1" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<VBox>
+											<Label text="{i18n>lblNumPerso}" labelFor="numPerso"/>
+											<Input id="numPerso" maxLength="3" editable="false"/>
+										</VBox>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblRbNumFt}">
+									<f:fields>
+										<RadioButtonGroup id="rbNumFt" editable="false">
+											<buttons>
+												<RadioButton id="NUM_FT_01" text="{i18n>lblNumFt01}"/>
+												<RadioButton id="NUM_FT_02" text="{i18n>lblNumFt02}"/>
+												<RadioButton id="NUM_FT_03" text="{i18n>lblNumFt03}"/>
+												<RadioButton id="NUM_FT_04" text="{i18n>lblNumFt04}" select="onGenSelected"/>
+											</buttons>
+										</RadioButtonGroup>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer id="NUM_OPT" visible="false">
+							<f:formElements>
+								<f:FormElement id="NUM_COR" label="{i18n>lblCor}">
+									<f:fields>
+										<Input id="numCorText" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement id="NUM_ANO" label="{i18n>lblNumAno}" visible="false">
+									<f:fields>
+										<Input id="numAnoText" maxLength="40" editable="false"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>lblRbNumMat}">
+									<f:fields>
+										<RadioButtonGroup id="rbNumMat" editable="false">
+											<buttons>
+												<RadioButton id="NUM_MT_01" text="{i18n>lblNumMt01}" editable="false"/>
+												<RadioButton id="NUM_MT_02" text="{i18n>lblNumMt02}" editable="false"/>
+												<RadioButton id="NUM_MT_03" text="{i18n>lblNumMt03}" editable="false"/>
+											</buttons>
+										</RadioButtonGroup>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</Panel>
+		</ScrollContainer>
+		<sap.m.semantic:customFooterContent>
+			<Button text="{i18n>btnVoltar}" icon="sap-icon://sys-back-2" width="6rem" id="btnVoltar" press="onBack" class="sapUiTinyMarginBeginEnd"/>
+			<Button text="{i18n>btnPago}" icon="sap-icon://paid-leave" width="6rem" id="btnPago" visible="false" press="onStsPago" class="sapUiTinyMarginBeginEnd"/>
+			<Button text="{i18n>btnExibe}" icon="sap-icon://paid-leave" width="8rem" id="btnExibe" visible="false" press="onStsExibe" class="sapUiTinyMarginBeginEnd"/>
+			<Button text="{i18n>btnSend}" icon="sap-icon://redo" width="8rem" id="btnSend" visible="false" press="onSend" class="sapUiTinyMarginBeginEnd"/>
+			<Button text="{i18n>btnConclu}" icon="sap-icon://complete" width="8rem" id="btnConclu" visible="false" press="onStsEnd" class="sapUiTinyMarginBeginEnd"/>
+		</sap.m.semantic:customFooterContent>
+	</sap.m.semantic:FullscreenPage>
+</mvc:View>

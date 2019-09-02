@@ -1,0 +1,43 @@
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="camLog.ZMM_CAM_LOG.controller.WorkList" id="WorkListView">
+	<App id="WorklistApp">
+		<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false">
+			<semantic:titleHeading>
+				<Title id="ttlHeader"/>
+			</semantic:titleHeading>
+			<semantic:content>
+				<Table id="table" width="auto" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished" itemPress="onItemPress" sticky="ColumnHeaders,HeaderToolbar">
+					<headerToolbar>
+						<Toolbar>
+							<CheckBox xmlns="sap.m" text="Incluir concluídos" selected="false" id="selAll" select="onRefresh"/>
+							<ToolbarSpacer/>
+							<DateRangeSelection width="30%" id="rangeDate" dateValue="{path:'/dateValue'}" secondDateValue="{path:'/secondDateValue'}" minDate="{path:'/dateMin'}" maxDate="{path:'/dateMax'}" change="onRefresh"/>
+							<ToolbarSpacer/>
+							<SearchField id="searchTable" search=".onSearch" width="auto"/>
+							<Button icon="sap-icon://refresh" tooltip="Refresh" width="2rem" id="btnRefresh" press="onRefresh" class="sapUiTinyMarginBeginEnd"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column id="colNumPersonr">
+							<Text text="{i18n>colNumPersonr}" id="txColNumPersonr"/>
+						</Column>
+						<Column id="colNmCliente">
+							<Text text="{i18n>colNmCliente}" id="txColNmCliente"/>
+						</Column>
+						<Column id="colNmPers">
+							<Text text="{i18n>nmPers}" id="txColNmPers"/>
+						</Column>
+						<Column id="colNumPers">
+							<Text text="{i18n>numPers}" id="txColNumPers"/>
+						</Column>
+						<Column id="colStsPagamento">
+							<Text text="{i18n>stsPagamento}" id="txColStsPagamento"/>
+						</Column>
+						<Column id="colStsProcessamento">
+							<Text text="{i18n>stsProcessamento}" id="txColStsProcessamento"/>
+						</Column>
+					</columns>
+				</Table>
+			</semantic:content>
+		</semantic:SemanticPage>
+	</App>
+</mvc:View>

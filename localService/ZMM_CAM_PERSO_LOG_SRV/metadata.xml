@@ -1,0 +1,101 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMM_CAM_PERSO_LOG_SRV" xml:lang="pt" sap:schema-version="1">
+			<EntityType Name="SelecApvProc" sap:content-version="1">
+				<Key><PropertyRef Name="Nperson"/><PropertyRef Name="Werks"/></Key><Property Name="Nperson" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cupom" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Matricula" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EndStsProc" sap:content-version="1">
+				<Key><PropertyRef Name="Nperson"/><PropertyRef Name="Werks"/></Key><Property Name="Nperson" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Header" sap:content-version="1">
+				<Key><PropertyRef Name="Uname"/></Key><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="DtIni" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="DtFim" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="SelectAll" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="DescCentro" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 caracteres"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><NavigationProperty Name="PedidoSet" Relationship="ZMM_CAM_PERSO_LOG_SRV.HEADER_PEDIDO" FromRole="FromRole_HEADER_PEDIDO"
+					ToRole="ToRole_HEADER_PEDIDO"/></EntityType>
+			<EntityType Name="RefreshHeader" sap:content-version="1">
+				<Key><PropertyRef Name="Uname"/><PropertyRef Name="DtIni"/><PropertyRef Name="DtFim"/><PropertyRef Name="SelectAll"/></Key><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DtIni" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DtFim" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Data" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SelectAll" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="RefreshHeaderSet" Relationship="ZMM_CAM_PERSO_LOG_SRV.REFRESH_HEADER" FromRole="FromRole_REFRESH_HEADER"
+					ToRole="ToRole_REFRESH_HEADER"/></EntityType>
+			<EntityType Name="ChgStsPag" sap:content-version="1">
+				<Key><PropertyRef Name="Werks"/><PropertyRef Name="NPerson"/></Key><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NPerson" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Vendedor" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Cupom" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="EvMensagem" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EvStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ReEnviaPedido" sap:content-version="1">
+				<Key><PropertyRef Name="Nperson"/><PropertyRef Name="Werks"/></Key><Property Name="Nperson" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Campo de comprimento 16"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Pedido" sap:content-version="1">
+				<Key><PropertyRef Name="Uname"/><PropertyRef Name="Werks"/><PropertyRef Name="NPerson"/></Key><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NPerson" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Campo numér.16"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vendedor" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmCliente" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stcd1" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Nº ID fiscal 1"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stcd2" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="Nº ID fiscal 2"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Smtpadr" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Endereço e-mail"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Código EAN/UPC"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmPers" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Campo de comprimento 16"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmPos" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Posicionamento nome"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmAli" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Alinhamento nome"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmFonte" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Fonte das camisas personalizadas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmTpMat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Material"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmCor" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Denominação" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmAno" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Exercício" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumPers" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Dummy" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumFonte" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Fonte das camisas personalizadas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumTpMat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Material"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumCor" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Denominação" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumAno" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Exercício" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Total" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="TOTAL"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PersoOnly" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Flag" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="StatusPag" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="char20" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="StatusProc" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 caracteres"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Changname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Erdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Dt.criação" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Creatime" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora da criação"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Creatname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nome do usuário"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Aedat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Modificado em"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Changtime" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Hora modific."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="REFRESH_HEADER" sap:content-version="1"><End Type="ZMM_CAM_PERSO_LOG_SRV.RefreshHeader" Multiplicity="1" Role="FromRole_REFRESH_HEADER"/><End Type="ZMM_CAM_PERSO_LOG_SRV.Header" Multiplicity="1" Role="ToRole_REFRESH_HEADER"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_REFRESH_HEADER"><PropertyRef Name="Uname"/><PropertyRef Name="DtIni"/><PropertyRef Name="DtFim"/><PropertyRef Name="SelectAll"/></Principal>
+					<Dependent Role="ToRole_REFRESH_HEADER"><PropertyRef Name="Uname"/><PropertyRef Name="DtIni"/><PropertyRef Name="DtFim"/><PropertyRef Name="SelectAll"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="HEADER_PEDIDO" sap:content-version="1"><End Type="ZMM_CAM_PERSO_LOG_SRV.Header" Multiplicity="1" Role="FromRole_HEADER_PEDIDO"/><End Type="ZMM_CAM_PERSO_LOG_SRV.Pedido" Multiplicity="*" Role="ToRole_HEADER_PEDIDO"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_HEADER_PEDIDO"><PropertyRef Name="Uname"/></Principal>
+					<Dependent Role="ToRole_HEADER_PEDIDO"><PropertyRef Name="Uname"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZMM_CAM_PERSO_LOG_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="SelecApvProcSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.SelecApvProc" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="EndStsProcSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.EndStsProc" sap:creatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="CamPersoSelecLogSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.Header" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="RefreshHeaderSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.RefreshHeader" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ChgStsPagSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.ChgStsPag" sap:creatable="false" sap:deletable="false" sap:pageable="false"
+				sap:content-version="1"/><EntitySet Name="ReEnviaPedidoSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.ReEnviaPedido" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="PedidoSet" EntityType="ZMM_CAM_PERSO_LOG_SRV.Pedido" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="REFRESH_HEADERSet" Association="ZMM_CAM_PERSO_LOG_SRV.REFRESH_HEADER" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="RefreshHeaderSet" Role="FromRole_REFRESH_HEADER"/><End EntitySet="CamPersoSelecLogSet" Role="ToRole_REFRESH_HEADER"/></AssociationSet>
+				<AssociationSet Name="HEADER_PEDIDOSet" Association="ZMM_CAM_PERSO_LOG_SRV.HEADER_PEDIDO" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="CamPersoSelecLogSet" Role="FromRole_HEADER_PEDIDO"/><End EntitySet="PedidoSet" Role="ToRole_HEADER_PEDIDO"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMM_CAM_PERSO_LOG_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMM_CAM_PERSO_LOG_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
